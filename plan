@@ -1,0 +1,16 @@
+I. Database
+	+ Customer (Info)
+	+ Address_cus (+ Phone_number)
+	+ Account, TypeAccount
+	+ Product (Info + Stock)
+	+ ProductCategory (Hierarchical)
+		. For design hierarchical data, techniques:
+			+ 1 table with 2 col id (1 for parent and 1 for itself)
+			+ XML: Internal Hierarchyid
+			+ Hierarchyid (MSSQL)
+	+ Product (Import) + Detail
+	+ Delivery info
+	+ Payment Options
+	+ Product (Export - Order + Paid / Not) + Detail
+	+ Voucher + Category (Like product_category)
+

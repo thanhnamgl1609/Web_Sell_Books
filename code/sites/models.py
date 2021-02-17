@@ -1,0 +1,182 @@
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#   * Rearrange models' order
+#   * Make sure each model has one field with primary_key=True
+#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# Feel free to rename the models, but don't rename db_table values or field names.
+from django.db import models
+
+
+class Acccat(models.Model):
+    id = models.CharField(db_column='ID', primary_key=True, max_length=1)  # Field name made lowercase.
+    type = models.CharField(db_column='Type', max_length=15)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'AccCat'
+
+
+class Account(models.Model):
+    username = models.CharField(db_column='Username', primary_key=True, max_length=20)  # Field name made lowercase.
+    password = models.CharField(db_column='Password', max_length=32)  # Field name made lowercase.
+    typeid = models.ForeignKey(Acccat, models.DO_NOTHING, db_column='TypeID')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Account'
+
+
+class Address(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    personid = models.ForeignKey('Person', models.DO_NOTHING, db_column='PersonID')  # Field name made lowercase.
+    num = models.IntegerField(db_column='Num')  # Field name made lowercase.
+    street = models.CharField(db_column='Street', max_length=15)  # Field name made lowercase.
+    ward = models.CharField(db_column='Ward', max_length=15, blank=True, null=True)  # Field name made lowercase.
+    district = models.CharField(db_column='District', max_length=15, blank=True, null=True)  # Field name made lowercase.
+    city = models.CharField(db_column='City', max_length=15)  # Field name made lowercase.
+    province = models.CharField(db_column='Province', max_length=15, blank=True, null=True)  # Field name made lowercase.
+    phonenumber = models.CharField(db_column='PhoneNumber', max_length=15)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Address'
+
+
+class Book(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    name = models.CharField(db_column='Name', max_length=20)  # Field name made lowercase.
+    author = models.CharField(db_column='Author', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    publisher = models.CharField(db_column='Publisher', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    year = models.IntegerField(db_column='Year', blank=True, null=True)  # Field name made lowercase.
+    stock = models.SmallIntegerField(db_column='Stock', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Book'
+
+
+class Bookcategory(models.Model):
+    bookid = models.OneToOneField(Book, models.DO_NOTHING, db_column='BookID', primary_key=True)  # Field name made lowercase.
+    categoryid = models.ForeignKey('Category', models.DO_NOTHING, db_column='CategoryID')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'BookCategory'
+        unique_together = (('bookid', 'categoryid'),)
+
+
+class Category(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    name = models.CharField(db_column='Name', max_length=15)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Category'
+
+
+class Deliveryinfo(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    status = models.CharField(db_column='Status', max_length=20)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'DeliveryInfo'
+
+
+class Orderdelivery(models.Model):
+    orderid = models.OneToOneField('Orders', models.DO_NOTHING, db_column='OrderID', primary_key=True)  # Field name made lowercase.
+    infoid = models.ForeignKey(Deliveryinfo, models.DO_NOTHING, db_column='InfoID')  # Field name made lowercase.
+    time = models.DateTimeField(db_column='Time', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'OrderDelivery'
+        unique_together = (('orderid', 'infoid'),)
+
+
+class Orderdetail(models.Model):
+    orderid = models.OneToOneField('Orders', models.DO_NOTHING, db_column='OrderID', primary_key=True)  # Field name made lowercase.
+    bookid = models.ForeignKey(Book, models.DO_NOTHING, db_column='BookID')  # Field name made lowercase.
+    amount = models.SmallIntegerField(db_column='Amount')  # Field name made lowercase.
+    unitprice = models.DecimalField(db_column='UnitPrice', max_digits=19, decimal_places=4, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'OrderDetail'
+        unique_together = (('orderid', 'bookid'),)
+
+
+class Orders(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    dateorder = models.DateTimeField(db_column='DateOrder', blank=True, null=True)  # Field name made lowercase.
+    paymentmethod = models.ForeignKey('Payment', models.DO_NOTHING, db_column='PaymentMethod')  # Field name made lowercase.
+    paid = models.BooleanField(db_column='Paid')  # Field name made lowercase.
+    totalprice = models.DecimalField(db_column='TotalPrice', max_digits=19, decimal_places=4, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Orders'
+
+
+class Payment(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    method = models.CharField(db_column='Method', max_length=20)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Payment'
+
+
+class Person(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    username = models.OneToOneField(Account, models.DO_NOTHING, db_column='Username', blank=True, null=True)  # Field name made lowercase.
+    firstname = models.CharField(db_column='FirstName', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    middlename = models.CharField(db_column='MiddleName', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    lastname = models.CharField(db_column='LastName', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    dob = models.DateField(db_column='DoB', blank=True, null=True)  # Field name made lowercase.
+    email = models.CharField(db_column='Email', max_length=30, blank=True, null=True)  # Field name made lowercase.
+    gender = models.CharField(db_column='Gender', max_length=1, blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Person'
+
+
+class Stock(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    datein = models.DateTimeField(db_column='DateIn', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Stock'
+
+
+class Stockdetail(models.Model):
+    stockid = models.OneToOneField(Stock, models.DO_NOTHING, db_column='StockID', primary_key=True)  # Field name made lowercase.
+    bookid = models.ForeignKey(Book, models.DO_NOTHING, db_column='BookID')  # Field name made lowercase.
+    amount = models.SmallIntegerField(db_column='Amount', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'StockDetail'
+        unique_together = (('stockid', 'bookid'),)
+
+
+class Voucher(models.Model):
+    id = models.SmallIntegerField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    catid = models.ForeignKey('Vouchercategory', models.DO_NOTHING, db_column='CatID')  # Field name made lowercase.
+    amount = models.IntegerField(db_column='Amount', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Voucher'
+
+
+class Vouchercategory(models.Model):
+    id = models.SmallIntegerField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    name = models.CharField(db_column='Name', max_length=20)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'VoucherCategory'

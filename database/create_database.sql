@@ -90,7 +90,9 @@ IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'Category' and xtype = 'U')
 BEGIN
 create table Category(
 	ID int not null primary key IDENTITY(1,1),
-	Name nvarchar(15) not null
+	Name nvarchar(50) not null,
+	parentID int,
+	FOREIGN KEY (parentID) references Category(ID)
 );
 END
 GO

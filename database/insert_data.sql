@@ -1,21 +1,36 @@
 use book_store;
 
-insert into Category(name) values (N'Sách Tiếng Việt'), (N'Văn phòng phẩm'), (N'Quà lưu niệm'), (N'English Books');
+insert into Category(name) values (N'Sách Tiếng Việt'), (N'English Books');
 GO
 
 insert into Category(name,parentid) values (N'Sách thiếu nhi',4), (N'Sách văn học',4), (N'Sách kỹ năng sống',4), (N'Sách tham khảo',4)
 GO
 
 insert into Category(name, parentid) values
-	(N'Dụng cụ văn phòng',5),
-	(N'Bút - Viết các loại',5),
-	(N'Dụng cụ học sinh',5),
-	(N'Sổ tay các loại',5),
-	(N'Móc khoá - Phụ kiện trang trí', 6),
-	(N'Thiệp - Bưu ảnh', 6),
-	(N'Quà tặng trang trí khác', 6),
-	(N'Phụ kiện - Vật liệu trang trí', 6),
 	(N'Children''s Books', 7),
 	(N'Education - Teaching', 7),
 	(N'Fiction - Literature', 7),
 	(N'Business & Economics', 7)
+GO
+
+insert into Book(Name, Author, Publisher, Year, catID) values (N'Hoàng tử bé',N'Antoine De Saint-Exupery',N'Nhà Xuất Bản Hội Nhà Văn', 2019, 8), (N'Chuyện con mèo dạy hải âu bay', N'Luis Sepúlveda', N'Nhà Xuất Bản Hội Nhà Văn',2019, 8), (N'Dế mèn phiêu lưu ký',N'Tô Hoài', N'Nhà xuất bản Kim Đồng', 2019, 8), (N'Bách khoa lịch sử thế giới', N'The USBORNE', N'Nhà xuất bản Dân Trí', 2018, 8), (N'Thân thoại Hy Lạp',N'Nguyễn Văn Khoả',N'Nhà Xuất Bản Văn Học',2012,8),(N'Nghìn lẻ một đêm', N'Antoine Galland', N'Nhà xuất bản văn học', 2010, 8),(N'Những tấm lòng cao cả',N'Edmondo De Amicis',N'Nhà xuất bản Kim Đồng', 2019, 8), (N'Cánh buồm đỏ thắm', N'Aleksandr Grin', N'Nhà xuất bản Kim Đồng', 2019, 8), (N'Lũ trẻ ở làng ồn ào',N'Astrid Lindgren',N'Nhà xuất bản phụ nữ Việt Nam',2020,8), (N'Mặt trời bé con', N'Eleanor H. Potter',N'Nhà xuất bản Hà Nội',2020,8);
+GO
+
+insert into Book(Name, Author, Publisher, Year, catID) values (N'Điều kỳ diệu của tiệm tạp hoá Namiya', N'Higashino Keigo', N'Nhà Xuất Bản Hội Nhà Văn', 2018, 9), (N'Sự im lặng của bầy cừu',N'Thomas Harris', N'Nhà Xuất Bản Hội Nhà Văn', 2018, 9), (N'Xứ tuyết', N'Kawabata Yasunari', N'Nhà Xuất Bản Hồng Đức', 2020, 9), (N'Bá tước Monte Cristo', N'Alexandre Dumas', N'Nhà xuất bản văn học', 2018, 9), (N'Đồi gió hú', N'Emily Bronte', N'Nhà xuất bản văn học', 2020, 9), (N'Cây cam ngọt của tôi', N'José Mauro De Yasconcelos', N'Nhà Xúât Bản Hội Nhà Văn', 2020, 9), (N'Hiệu sách nhỏ ở Paris', N'Nina George', N'Nhà xuất bản Hà Nội', 2020, 9), (N'Nỗi lòng của mẹ', N'Cho Nam Joo', N'Nhà xuất bản phụ nữ',2019,9), (N'Nơi bầu trời và đại dương gặp gỡ', N'Rui Kodemari', N'Nhà Xuất Bản Văn Học', 2019, 9), (N'Sự cám dỗ cuối cùng', N'Diệp Lạp Vô Tâm', N'Nhà Xuất Bản Văn Học', 2019, 9);
+GO
+
+insert into Book(Name, Author, Publisher, Year, catID) values (N'Thay đổi cuộc sống với nhân số học', N'David A. Phillips', N'Nhà xuất bản tổng hợp TP.HCM', 2020, 10), (N'Đàn Ông Sao Hoả Đàn Bà Sao Kim',N'John Gray', N'Nhà xuất bản Hồng Đức', 2019, 10), (N'Tôi - Tương lai và thế giới', N'Nguyễn Phi Vân', N'Nhà xuất bản thế giới', 2018, 10), (N'Đời ngắn đừng ngủ dài', N'Robin Sharma', N'Nhà xuất bản trẻ', 2018,10), (N'Cà phê cùng Tony',N'Tony buổi sáng',N'Nhà xuất bản trẻ', 2017, 10), (N'Đi tìm lẽ sống', N'Viktor Emil Frankl', N'Nhà xuất bản tổng hợp TP.HCM', 2019, 10), (N'Đừng chạy theo số đông', N'Kiên Trần', N'Nhà xuất bản thế giới', 2020, 10), (N'Lối sống tối giản của người Nhật', N'Sasaki Fumio', N'Nhà xuất bản lao động', 2017,10), (N'Tư duy nhanh và chậm', N'Daniel Kahneman', N'Nhà xuất bản thế giới', 2014,10), (N'Hiệu ứng Medici', N'Frans Johansson', N'Nhà xuất bản Kinh Tế TP.HCM', 2019, 10)
+GO
+
+insert into Book(Name, Author, Publisher, Year, catID) values (N'Công phá vật lí 3', N'Tăng Hải Tuân', N'Nhà xuất bản Đại Học Quốc Gia Hà Nội', 2018, 11), (N'Sổ tay kiến thức Toán THPT', N'Nguyễn Thị Anh', N'Nhà xúât bản Đại Học Quốc Gia Hà Nội', 2019, 11), (N'Bồi dưỡng học sinh giỏi Sinh', N'Phan Khắc Nghệ', N'Nhà xuất bản Đại Học Quốc Gia Hà Nội', 2019, 11), (N'Chinh phục luyện thi vào lớp 10', N'Dương Hương', N'Nhà xuất bản Đại Học Quốc Gia Hà Nội', 2020, 11), (N'Bộ đề luyện thi THPT môn Tiếng Anh', N'Mai Lan Hương', N'Nhà xuất bản Đà Nẵng', 2019, 11), (N'Bài tập trắc nghiệp tiếng Anh', N'Mai Lan Hương', N'Nhà xuất bản Đà Nẵng', 2018, 11), (N'Chinh phục đề thi vào 10 Chuyên', N'Dương Thị Hương', N'Nhà xuất bản Đại Học Quốc Gia Hà Nội', 2019, 11), (N'Toán học thú vị từ số và phép tính', N'Nguyễn Đức Tấn', N'Nhà xuất bản Đại Học Quốc Gia Hà Nội', 2019, 11), (N'Tổng ôn tập hoá vô cơ', N'Hồ Sĩ Thạnh', N'Nhà xuất bản Đà Nẵng', 2019, 11), (N'Bộ đề đánh gía năng lực môn Lịch Sử', N'Nguyễn Văn Ninh', N'Nhà xuất bản Dân Trí', 2021, 11)
+GO
+
+insert into Book(Name, Author, Publisher, Year, catID) values (N'Daddy Pig''s Office', N'Ladybird',N'Penguin Random House', 2019, 21), (N'Going Boating', N'Ladybird', N'Penguin Random House', 2019, 21), (N'Trouble At School', N'Chris Higgins', N'Bloomsbury', 2018, 21), (N'The Island of Adventure', N'Enid Blyton', N'MacMillan',2014,21), (N'The Valley of Adventure', N'Enid Blyton', N'MacMillan', 2014, 21), (N'Robot', N'DK', N'DK Publishing', 2018, 21), (N'199 Things under the sea', N'Jessica Greenwell', N'Usborne Publishing', 2016, 21), (N'Dinosaurs & Prehistoric life', N'Smithsonian Institution', N'DK Publishing', 2019, 21), (N'See inside the Ancient World', N'Rob Lloyd Jones', N'Usborne publishing', 2019, 21), (N'Wild Weather', N'King fisher', N'MacMillan', 2020, 21)
+go
+
+insert into Book(Name, Author, Publisher, Year, catID) values (N'Idioms and Phrasal Verbs', N'Oxford Word Skills', N'Oxford University Press', 2020, 22), (N'Check your English Vocabulary for IELTS', N'Rawdon Wyatt', N'Bloomsbury', 2017, 22), (N'SAT Prep 2020', N'Kaplan Test Prep', N'Kaplan Publishing', 2020, 22), (N'Oxford Bookworms Library', N'Philip Burrows', N'Oxford University Press', 2018, 22), (N'Robinson Crusoe', N'Daniel Defoe', N'Compass Publishing', 2009, 22), (N'Oxford Bookworms Library 6: The Enemy', N'Desmond Bagley - Ralph Mowat', N'Oxford University Press', 2007, 22), (N'Wyntka: Proverbs And Sayings', N'Anne Seaton - Rowena Knox', N'Scholastic', 2014, 22), (N'Wyntka: Idioms', N'Virginia Klein', N'Scholastic', 2014, 22), (N'Life: Student''Book with Web App Code With Online Workbook', N'John Hughes - Paul Dummet', N'Cengage Learning', 2019, 22), (N'Solutions Upper-Inter: Student Book', N'Davies - Falla', N'Oxford University Press', 2013, 22)
+go
+
+insert into Book(name, author, publisher, year, catID) values (N'Little Women', N'Louis May Alcott - Ella Bailey', N'Bloomsbury', 2016, 23), (N'The Great Gatsby - Vintage', N'F Scott Fitzgerald', N'Penguin Random House', 2016, 23), (N'Pride And Prejudice', N'Jane Austen', N'Vintage Classic', 2007, 23), (N'Eleanor And Park', N'Jane Austen', N'Hachette Book Group', 2017, 23), (N'Thirteen Reasons Why', N'Jay Asher', N'Penguin Random House', 2014, 23), (N'IT',N'Stephen King',N'Hachette Book Group', 2017, 23), (N'The Hunger Games', N'Suzanne Collins', N'Scholastic', 2008, 23), (N'Inferno', N'Dan Brown', N'Penguin Random House', 2016, 23), (N'The Lost Symbol', N'Dan Brown', N'Penguin Random House', 2010, 23), (N'Salvation Of A Saint', N'Keigo Higashino', N'Hachette Book Group', 2013, 23)
+
+insert into Book(name, author, publisher, year, catID) values (N'The Business Book', N'DK', N'DK Publishing', 2014, 24), (N'The Learn Start-Up', N'Eric Ries', N'Penguin Random House', 2013, 24), (N'The Storytellers Secret', N'Carmine Gallo', N'Pan MacMillan', 1900, 24), (N'Emotional Intelligence: Why It Can Matter More Than IQ?', N'Daniel Goleman', N'Penguin Random House US', 1976, 24), (N'Sometimes you win - Sometimes you learn', N'John C. Maxwell', N'Hachette Book Group', 2015, 24), (N'The Essential HR Handbook', N'Sharon Armstrong - Barbara Mitchell', N'Career Press', 2008, 24), (N'Execution: The Discipline of Getting Things Done', N'Larry Bossidy', N'Penguin Random House US', 2002, 24), (N'Big Data: The Essential Guide to Work, Life and Learning in the Age of Insight', N'Viktor Mayer-Schõnberger', N'Hachette Book Group',2017,24), (N'The Airbnb Story', N'Leigh Gallagher', N'Penguin Random House', 2018, 24), (N'Valley Of Genius', N'Adam Fisher', N'Hachette Book Group', 2018, 24)

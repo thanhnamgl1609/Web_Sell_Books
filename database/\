@@ -87,7 +87,7 @@ IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'Book' and xtype = 'U')
 BEGIN
 create table Book(
 	ID int not null primary key IDENTITY(1,1),
-	Name nvarchar(100) not null,
+	Name nvarchar(50) not null,
 	Author nvarchar(50),
 	Publisher nvarchar(50),
 	Year int,

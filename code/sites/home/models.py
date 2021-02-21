@@ -45,38 +45,28 @@ class Address(models.Model):
 
 class Book(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    name = models.CharField(db_column='Name', max_length=20)  # Field name made lowercase.
-    author = models.CharField(db_column='Author', max_length=20, blank=True, null=True)  # Field name made lowercase.
-    publisher = models.CharField(db_column='Publisher', max_length=20, blank=True, null=True)  # Field name made lowercase.
+    name = models.CharField(db_column='Name', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    author = models.CharField(db_column='Author', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    publisher = models.CharField(db_column='Publisher', max_length=50, blank=True, null=True)  # Field name made lowercase.
     year = models.IntegerField(db_column='Year', blank=True, null=True)  # Field name made lowercase.
     stock = models.SmallIntegerField(db_column='Stock', blank=True, null=True)  # Field name made lowercase.
+    catid = models.ForeignKey('Category', models.DO_NOTHING, db_column='catID', blank=True, null=True)  # Field name made lowercase.
+    price = models.DecimalField(max_digits=19, decimal_places=4, blank=True, null=True)
+    image = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'Book'
 
 
-class Bookcategory(models.Model):
-    bookid = models.OneToOneField(Book, models.DO_NOTHING, db_column='BookID', primary_key=True)  # Field name made lowercase.
-    categoryid = models.ForeignKey('Category', models.DO_NOTHING, db_column='CategoryID')  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'BookCategory'
-        unique_together = (('bookid', 'categoryid'),)
-
-
 class Category(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    name = models.CharField(db_column='Name', max_length=30, blank=True, null=True)  # Field name made lowercase.
+    name = models.CharField(db_column='Name', max_length=50, blank=True, null=True)  # Field name made lowercase.
     parentid = models.ForeignKey('self', models.DO_NOTHING, db_column='parentID', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'Category'
-
-    def __str__(self):
-        return "{},{},{}".format(self.id, self.name, self.parentid)
 
 
 class Deliveryinfo(models.Model):

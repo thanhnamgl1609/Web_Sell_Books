@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Risque&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Risque&display=swap');
 @import "custom.scss";
 
 body {
@@ -8,6 +8,12 @@ body {
 .navbar-brand{
     font-family: 'Risque', cursive;
     font-size: 40px;
+}
+
+.book-name{
+    font-family: 'Lobster', cursive;
+    
+    font-size: 20pt;
 }
 
 #s-img {
@@ -31,6 +37,11 @@ body {
     height: 20px;
 }
 
-#side-bar{
+#headerbar{
+    min-width: 900px;
+}
+
+#sidebar{
     width: 300px;
+    min-width: 300px;
 }

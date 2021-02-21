@@ -10,5 +10,4 @@ $position-values-custom: (
     "10": 10%,
     "20": 20%
 );
-
 $postion-values: map-merge($position-values-custom, $position-values);

@@ -92,6 +92,8 @@ create table Book(
 	Publisher nvarchar(50),
 	Year int,
 	Stock smallint default(0),
+	Price money default(0),
+	Image varchar(50)
 	CatID int,
 	CONSTRAINT CK_BOOK_YEAR CHECK (YEAR <= YEAR(GETDATE())),
 	FOREIGN KEY (CatID) references Category(ID),

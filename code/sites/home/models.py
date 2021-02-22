@@ -58,6 +58,9 @@ class Book(models.Model):
         managed = False
         db_table = 'Book'
 
+    def __str__(self):
+        return self.name
+
 
 class Category(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.

@@ -20,9 +20,9 @@
     <nav class="navbar navbar-dark bg-primary sticky-top">
         <div id="headerbar" class="container-sm-fluid d-flex mx-5 w-100">
             <div class="d-flex flex-grow-1 justify-content-start w-50 align-items-center">
-                <a class="navbar-brand" href="/home">HOME</a>
-                <form class="d-flex h-50 w-100">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <a class="navbar-brand" href="/">HOME</a>
+                <form method="GET" action="/search" class="d-flex h-50 w-100">
+                    <input class="form-control" type="text" placeholder="search" name='search' aria-label="search">
                     <button class="btn btn-outline-success bg-light" type="submit">
                         <img id="s-img" src="{% static 'image/search.png'%}">
                     </button>

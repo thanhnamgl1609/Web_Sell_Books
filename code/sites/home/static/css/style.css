@@ -45,3 +45,11 @@ body {
     width: 300px;
     min-width: 300px;
 }
+
+.carousel.slide{
+    min-height: 500px;
+}
+
+.carousel-item{
+    min-width: 1300px;
+}

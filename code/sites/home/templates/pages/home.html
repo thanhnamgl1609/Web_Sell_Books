@@ -4,73 +4,91 @@
 {% block title %}Book Store{% endblock %}
 
 {% block content %}
-    <div id="Slide1" class="carousel slide" data-bs-ride="carousel">
+    <div class="container flex-grow-1 w-75">
+        <div id="Slide1" class="carousel slide" data-bs-ride="carousel">
 
-        {% if products_list %}
-            <div class="carousel-inner h-100">
-                <div class="carousel-item h-100 active">
-                    <div class="row">
-                    {% for product in products_list.0 %}
-                        <div class="col">
-                        <div class="card h-100 border-0" style="width: 18rem;">
-                            <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
-                                <div class="card-header h-75 w-100 d-flex align-items-end">
-                                    <img src="{% static product.image %}" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="book-name">{{product.name}}</h5>
-                                    <footer>{{product.price}}</footer>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    </div>
-                </div>
-                {% for products in products_list%}
-                    {% if not forloop.first %}
-                        <div class="carousel-item h-100">
-                            <div class="row justify-content-start">
-                                {% for product in products %}
-                                    {% if product %}
-                                        <div class="col">
-                                            <div class="card h-100 border-0" style="width: 18rem;">
-                                                <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
-                                                    <div class="card-header h-75 w-100 d-flex align-items-end">
-                                                        <img src="{% static product.image %}" class="card-img-top" alt="...">
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <h5 class="book-name">{{product.name}}</h5>
-                                                        <footer>{{product.price}}</footer>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
+            {% if products_list %}
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item h-100 active">
+                        <div class="row">
+                        {% for product in products_list.0 %}
+                            <div class="col">
+                            <div class="card h-100 border-0" style="width: 18rem;">
+                                <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
+                                    <div class="card-header h-75 w-100 d-flex align-items-end">
+                                        <img src="{% static product.image %}" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="book-name">{{product.name}}</h5>
+                                        <footer>{{product.price}}</footer>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#Slide1"  data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#Slide1"  data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        {% endif %}
-    </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    {% for products in products_list%}
+                        {% if not forloop.first %}
+                            <div class="carousel-item h-100">
+                                <div class="row justify-content-start">
+                                    {% for product in products %}
+                                        {% if product %}
+                                            <div class="col">
+                                                <div class="card h-100 border-0" style="width: 18rem;">
+                                                    <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
+                                                        <div class="card-header h-75 w-100 d-flex align-items-end">
+                                                            <img src="{% static product.image %}" class="card-img-top" alt="...">
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h5 class="book-name">{{product.name}}</h5>
+                                                            <footer>{{product.price}}</footer>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#Slide1"  data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#Slide1"  data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            {% endif %}
+        </div>
 
-     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        {% if products_list %}
-            <div class="carousel-inner h-100">
-                <div class="carousel-item h-100 active">
-                    <div class="row">
-                    {% for product in products_list.0 %}
-                        <div class="col">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            {% if products_list %}
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item h-100 active">
+                        <div class="row">
+                        {% for product in products_list.0 %}
+                            <div class="col">
+                            <div class="card h-100 border-0" style="width: 18rem;">
+                                <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
+                                    <div class="card-header h-75 w-100 d-flex align-items-end">
+                                        <img src="{% static product.image %}" class="card-img-top" alt="...">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="book-name">OK</h5>
+                                        <footer>OK</footer>
+                                    </div>
+                                </a>
+                            </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
                         <div class="card h-100 border-0" style="width: 18rem;">
                             <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
                                 <div class="card-header h-75 w-100 d-flex align-items-end">
@@ -82,46 +100,30 @@
                                 </div>
                             </a>
                         </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card h-100 border-0" style="width: 18rem;">
+                            <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
+                                <div class="card-header h-75 w-100 d-flex align-items-end">
+                                    <img src="{% static product.image %}" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="book-name">OK</h5>
+                                    <footer>OK</footer>
+                                </div>
+                            </a>
                         </div>
-                    {% endfor %}
-                    </div>
-
-                </div>
-                <div class="carousel-item">
-                    <div class="card h-100 border-0" style="width: 18rem;">
-                        <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
-                            <div class="card-header h-75 w-100 d-flex align-items-end">
-                                <img src="{% static product.image %}" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="book-name">OK</h5>
-                                <footer>OK</footer>
-                            </div>
-                        </a>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="card h-100 border-0" style="width: 18rem;">
-                        <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
-                            <div class="card-header h-75 w-100 d-flex align-items-end">
-                                <img src="{% static product.image %}" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="book-name">OK</h5>
-                                <footer>OK</footer>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        {% endif %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

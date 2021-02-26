@@ -1,3 +1,15 @@
 {% extends 'pages/base.html'%}
+{% load static %}
 
-{% block sidebar%}{%endblock%}
+{% block sidebar %}{%endblock%}
+{% block content %}
+    <div class="d-flex flex-column w-100">
+        <div class="product-info d-flex flex-row justify-content-start">
+            <img src="{% static product.image %}" class="book-image-detail p-2">
+            <div class="container d-flex flex-grow-1 p-2" id="main-detail">
+                <h1 id="book-name">{{product.name}}</h1>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

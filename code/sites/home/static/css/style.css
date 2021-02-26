@@ -12,7 +12,6 @@ body {
 
 .book-name{
     font-family: 'Lobster', cursive;
-    
     font-size: 20pt;
 }
 
@@ -52,4 +51,12 @@ body {
 
 .carousel-item{
     min-width: 1300px;
+}
+
+.book-image-detail{
+    width: 400px;
+}
+
+#main-detail{
+    min-width: 600px;
 }

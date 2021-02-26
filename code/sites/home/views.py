@@ -37,5 +37,6 @@ def search(request):
         results=[]
     return render(request,'pages/by_category.html',{'categories': categories, 'products': results})
 
-def detail(request, id):
-    return render(request, 'pages/detail.html')
+def detail(request, p_id):
+    product = Book.objects.get(id= p_id)
+    return render(request, 'pages/detail.html',{'product': product})

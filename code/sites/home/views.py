@@ -32,7 +32,10 @@ def search(request):
     query = request.GET.get('search')
     categories = Category.objects.filter(parentid=None)
     if query:
-        results = Book.objects.filter(name__startswith=query)
+        results = Book.objects.filter(name__contains=query)
     else:
         results=[]
     return render(request,'pages/by_category.html',{'categories': categories, 'products': results})
+
+def detail(request, id):
+    return render(request, 'pages/detail.html')

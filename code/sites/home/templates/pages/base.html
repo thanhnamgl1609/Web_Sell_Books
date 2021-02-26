@@ -17,6 +17,7 @@
 	<link rel="icon" href="{% static 'image/book_store.webp' %}" type="image/icon type">
 </head>
 <body>
+	{% block header %}
     <nav class="navbar navbar-dark bg-primary sticky-top">
         <div id="headerbar" class="container-sm-fluid d-flex mx-5 w-100">
             <div class="d-flex flex-grow-1 justify-content-start w-50 align-items-center">
@@ -58,8 +59,10 @@
 			</div>           
         </div>
     </nav>
+	{% endblock %}
 
 	<div id="main" class="d-flex my-4 mx-5">
+		{% block sidebar %}
 		<aside id = "sidebar" class="container">
 			{% if categories %}
 			<div class="container d-flex flex-column bg-light">
@@ -71,7 +74,7 @@
 				</ul>
 			</div>
 			{% endif%}
-
+		
 			<div class="container d-flex flex-column bg-light">
 				<span class="fs-4 mb-1">ĐÁNH GIÁ</span>	
 				<ul class="list-unstyled fw-normal pb-1 small">
@@ -111,6 +114,7 @@
 				</ul>
 			</div>
 		</aside>
+		{% endblock %}
 		<div class="container flex-grow-1 w-75">
 			{% block content %}{% endblock %}
 		</div>

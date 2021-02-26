@@ -8,7 +8,7 @@
     {% for product in products %}
     <div class="col">
         <div class="card h-100 border-0" style="width: 18rem;">
-            <a href="/detail/{{product.id}}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
+            <a href="{% url 'detail' product.id %}" class="text-decoration-none fw-normal fst-normal text-dark h-100">
                 <div class="card-header h-75 w-100 d-flex align-items-end">
                     <img src="{% static product.image %}" class="card-img-top" alt="...">
                 </div>
